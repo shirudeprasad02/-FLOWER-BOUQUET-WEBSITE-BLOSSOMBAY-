@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+<div class="container">
+    <div class="container shadow p-3 mb-5 bg-body rounded">
+        <div class="row">
+            {% for i in data %}
+            <div class="col-md-3">
+                <div class="card shadow p-2 mb-5 bg-body rounded" style="width: 18rem;">
+                    <img src="{{i.pid.fimage.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.pid.fname}}</h5>
+                        <p class="card-text">
+                        <h6>Price: <span>&#8377;</span>{{i.pid.price}}</h6>
+                        </p>
+                        <a href="/product_detail/{{i.id}}" class="btn " style="background-color: #e69693;">Buy</a> <span
+                            class="badge bg-danger">New</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock 'main' %}

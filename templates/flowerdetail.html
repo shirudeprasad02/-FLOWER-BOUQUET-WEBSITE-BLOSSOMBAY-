@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+
+<div class="container">
+    <!-- <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Flower Detail</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+        </nav>
+    </div> -->
+
+    <div class="conainer">
+        {% if errmsg %}
+        <div class="alert alert-danger" role="=alert">
+            {{errmsg}}
+
+        </div>
+        {% endif %}
+        {% if success %}
+        <div class="alert alert-success" role="alert">
+            {{success}}
+        </div>
+        {% endif %}
+        {% for i in data %}
+        <div class="row">
+
+            <div class="col-md-5 ">
+                <img src="{{i.fimage.url}}" class="img-thumbnail" alt="...">
+            </div>
+
+            <div class="col-md-7  shadow p-3 mb-5 bg-body rounded ">
+                <h2>
+                    {{i.fname}}
+                </h2>
+                <p>
+                <h4>Price: <span>&#8377;</span> {{i.price}} </h4>
+                </p>
+                <h5> Available offers</h5>
+                <ul>
+                    <li style="list-style-type:disc;">
+                        Get upto ₹750 Cashback on paying via Mobikwik
+                    </li>
+                    <li style="list-style-type:disc;">
+                        Use Coupon Code: TRYWINNI to get 20% off
+                    </li>
+                    <li style="list-style-type:disc;">
+                        Use Coupon Code: WIN50 to get ₹50 off
+                    </li>
+                </ul>
+                <div class="d-grid gap-2">
+                    <!-- <button class="btn btn-primary" type="button">Button</button> -->
+                    <a href="/cart" class="d-grid gap-2 w-50"><button class="btn btn-primary" type="button"
+                            style="background-color:#eae4d0 ; color: black;">View
+                            Cart</button></a>
+                    <a href="/addtocart/{{i.id}}" class="d-grid gap-2 w-50"><button class="btn btn-primary" type="button"
+                            style="background-color:#eae4d0 ; color: black;">Add To
+                            Cart</button></a>
+                    <!-- <a href="#" class="d-grid gap-2"><button class="btn btn-primary" type="button">Button</button></a> -->
+                </div>
+
+                <h4>Product Description</h4>
+                <ul>Product Details:
+
+                    <li style="list-style-type:disc;">Flower Type:{{i.flowert}}</li>
+                    <li style="list-style-type:disc;">No. of Stems: {{i.nos}} </li>
+                    <li style="list-style-type:disc;">Flowers Contains: {{i.flowc}} </li>
+                    <li style="list-style-type:disc;">Packing: {{i.packing}} </li>
+                    <li style="list-style-type:disc;">Packing Color: {{i.packingc}} </li>
+                    <li style="list-style-type:disc;">Ribbons: {{i.ribb}} </li>
+                    <li style="list-style-type:disc;">No. of Packing: {{i.np}} </li>
+                </ul>
+                <ul>Delivery Details:
+                    <li style="list-style-type:disc;">The image displayed is representative. The actual product may vary in shape, size, brand,
+                        and colour as per local availability.</li>
+                    <li style="list-style-type:disc;">The delivery time selected is an estimate and depends on the products' availability and the
+                        location to which the product is to be delivered.</li>
+                    <li style="list-style-type:disc;">It is not possible to reroute the delivery to another address.</li>
+                    <li style="list-style-type:disc;">This product is delivered by hand and will not be delivered with courier products.</li>
+                    <li style="list-style-type:disc;">A Slight delay might be expected during the Festival Season. </li>
+                    <li style="list-style-type:disc;">Messages on cards may not be available in a few areas.</li>
+                </ul>
+                <ul>Care Instructions:
+                    <li style="list-style-type:disc;">When you get flowers, trim the stems and cut 1-2 inches of the stem. Put the flowers in a
+                        clean vase filled with water.</li>
+                    <li style="list-style-type:disc;">Remove the leaves below the waterline but do not remove all leaves along the stem length
+                        Check the water level daily and replenish as needed.</li>
+                    <li style="list-style-type:disc;">Don’t place flowers in direct sunlight or near any other source of excessive heat.</li>
+                    <li style="list-style-type:disc;">All flowers benefit from a daily mist of water.</li>
+                </ul>
+                <ul>Please Note:
+                    <li style="list-style-type:disc;">Non-woven fabric wrapping is replaced with paper wrapping in Bangalore, Mumbai, Pune, and
+                        other cities as per government rule. </li>
+                    <li style="list-style-type:disc;">Green fillers may vary per availability according to the season. </li>
+                    <li style="list-style-type:disc;">Bow colour according to the availability.</li>
+                </ul>
+
+                <p><b>Country of Origin: India</b></p>
+
+            </div>
+        </div>
+        {% endfor %} 
+    </div>
+</div>
+
+{% endblock 'main' %}

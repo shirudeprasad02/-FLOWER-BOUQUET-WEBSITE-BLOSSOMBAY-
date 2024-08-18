@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+<div class="container">
+    <!-- <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/index">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">product</li>
+                {% if i.pid.cat == 1 %} 
+                <p>Red Rose</p>
+                {% elif i.pid.cat == 2 %}
+                <p>Yellow Rose</p>
+                {% elif i.pid.cat == 3 %}
+                <p>White Rose</p>
+                {% elif i.pid.cat == 4 %}
+                <p>Pink Rose</p>
+                {% elif i.pid.cat == 5 %}
+                <p>Flower</p>
+                {% else %}
+                <p><strong>Product Detail:</strong>Clouth</p>
+                {% endif %}</p></li>
+            </ol>
+        </nav>
+    </div> -->
+    <div class="container shadow p-3 mb-5 bg-body rounded">
+        <div class="row">
+            {% for i in data %}
+            <div class="col-md-3">
+                <div class="card shadow p-2 mb-5 bg-body rounded" style="width: 18rem;">
+                    <img src="{{i.fimage.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.fname}}</h5>
+                        <p class="card-text">
+                        <h6>Price: <span>&#8377;</span>{{i.price}}</h6>
+                        </p>
+                        <a href="/product_detail/{{i.id}}" class="btn " style="background-color: #e69693;">Buy</a> <span
+                            class="badge bg-danger">New</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock 'main' %}
